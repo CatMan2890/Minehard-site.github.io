@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineHard - Приватный Vanilla+ Сервер</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* SPA specific styles */
+        .page-section {
+            display: none;
+            padding-top: 100px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Gallery Grid Inline Style */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: #2c3e50;
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bdc3c7;
+            font-size: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="background-anim">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <a href="#home" class="logo" onclick="navigateTo('home')">
+            <i class="fa-solid fa-cube"></i> MineHard
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link active" onclick="navigateTo('home')">Главная</a></li>
+                <li><a href="#faq" class="nav-link" onclick="navigateTo('faq')">FAQ</a></li>
+                <li><a href="#rules" class="nav-link" onclick="navigateTo('rules')">Правила</a></li>
+                <li><a href="#gallery" class="nav-link" onclick="navigateTo('gallery')">Галерея</a></li>
+                <li><a href="#join" class="nav-link" onclick="navigateTo('join')">Как попасть?</a></li>
+                <li><a href="#contacts" class="nav-link" onclick="navigateTo('contacts')">Контакты</a></li>
+            </ul>
+        </nav>
+        <a href="#join" class="btn btn-primary" onclick="navigateTo('join')">Играть сейчас</a>
+    </header>
+
+    <!-- CONTENT SECTIONS -->
+
+    <!-- HOME SECTION -->
+    <section id="home" class="page-section active">
+        <div class="hero"
+            style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h1>MineHard Vanilla+</h1>
+            <p>Наш приватный Vanilla+ сервер MineHard — место, где реально приятно играть и проводить время</p>
+            <div class="hero-buttons">
+                <a href="#rules" class="btn btn-primary" onclick="navigateTo('rules')">Читать правила</a>
+                <a href="#" class="btn btn-secondary"><i class="fa-brands fa-discord"></i> Discord</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="info-grid">
+                <div class="card animate-up delay-1">
+                    <h3><i class="fa-solid fa-server"></i> Стабильность</h3>
+                    <p>Мощное оборудование и оптимизация для игры без лагов.</p>
+                </div>
+                <div class="card animate-up delay-2">
+                    <h3><i class="fa-solid fa-users"></i> Комьюнити</h3>
+                    <p>Адекватные игроки и админы, которые не лезут без причины.</p>
+                </div>
+                <div class="card animate-up delay-3">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Безопасность</h3>
+                    <p>Защита от гриферов и честная игра без читеров.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RULES SECTION -->
+    <section id="rules" class="page-section">
+        <div class="rules-container">
+            <h1 style="text-align: center; margin-bottom: 3rem; font-size: 3rem;" class="animate-up">Правила Сервера
+            </h1>
+
+            <div class="rule-block animate-up delay-1">
+                <h2>1.0 ОБЩЕЕ</h2>
+                <div class="rule-item">
+                    <p><strong>1.1. Уважение</strong>Уважайте других игроков. Оскорбления, травля, расизм, дискриминация
+                        — бан.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>1.2. Чат</strong>Не спамьте и не флудите в чате. Реклама других серверов/проектов
+                        запрещена.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>1.3. Личная информация</strong>Не выдавайте личную информацию других людей (доксинг).</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>1.4. Общение</strong>Используйте общий чат по назначению. Для личных разговоров есть
+                        /msg.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>1.5. Ники и Скины</strong>Запрещены ники и скины, содержащие оскорбления, нецензурщину
+                        или провокационные темы.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>1.6. Баги</strong>Нашли баг? Сообщите админу. Использовать баги для выгоды нельзя.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>1.7. Наказания</strong>Администрация может выдавать наказание по своему усмотрению.</p>
+                </div>
+            </div>
+
+            <div class="rule-block animate-up delay-2">
+                <h2>2.0 АДМИНИСТРАЦИЯ</h2>
+                <div class="rule-item">
+                    <p><strong>2.1. Роль админов</strong>Админы помогают, поддерживают порядок и решают технические
+                        проблемы. Они не ваши слуги.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>2.2. Решения</strong>Решение старшего админа — окончательное.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>2.3. Честность</strong>Админам запрещено использовать свои возможности для личной выгоды
+                        в игре.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>2.4. Связь</strong>Вопросы и жалобы админам — через тикеты в Discord, а не в игровой чат.
+                    </p>
+                </div>
+            </div>
+
+            <div class="rule-block animate-up delay-3">
+                <h2>3.0 ИГРОКИ</h2>
+                <div class="rule-item">
+                    <p><strong>3.1. Гриферство</strong>Запрещено: ломать/портить чужие постройки, убивать животных,
+                        воровать из сундуков, заливать лавой/водой.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>3.2. Читы</strong>Запрещены: X-Ray, Fly, Kill Aura, автокликеры, дюпы и любые программы,
+                        дающие преимущество. Бан навсегда.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>3.3. PvP</strong>Разрешён только по взаимному согласию. Убивать игроков без их согласия
+                        нельзя.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>3.4. Приватность</strong>Не стройтесь вплотную к чужим базам без спроса. Уважайте чужое
+                        пространство.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>3.5. Лаги</strong>Фермы и механизмы не должны вызывать сильных лагов. Если сервер
+                        "лагает" из-за вашей постройки — вас попросят её отключить.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>3.6. Спавн</strong>Не стройте постоянные базы и не мусорьте на спавне. Спавн —
+                        общественная зона.</p>
+                </div>
+            </div>
+
+            <div class="rule-block animate-up delay-4">
+                <h2>4.0 Сервер</h2>
+                <div class="rule-item">
+                    <p><strong>4.1. Разрешенные моды</strong>Оптимизация (OptiFine, Sodium), графика (шейдеры), удобство
+                        (Minimap БЕЗ подсветки, Inventory Tweaks, Replay Mod).</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>4.2. Запрещенные моды</strong>Любые моды и программы, дающие игровое преимущество (X-Ray,
+                        автокликеры, полёт и т.д.).</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>4.3. Плагины</strong>На сервере могут быть служебные плагины только для защиты
+                        (логирование) и приватов. Они не меняют ванильный геймплей.</p>
+                </div>
+                <div class="rule-item">
+                    <p><strong>4.4. Спорные ситуации</strong>Администрация оставляет за собой право окончательного
+                        решения в спорных ситуациях, исходя из здравого смысла и интересов сообщества.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="page-section">
+        <div class="container">
+            <h1 style="text-align: center; margin-bottom: 2rem;" class="animate-up">Часто задаваемые вопросы</h1>
+
+            <div class="card animate-up delay-1" style="margin-bottom: 1rem;">
+                <h3>Нужна ли лицензия?</h3>
+                <p>Нет, на нашем сервере можно играть как с лицензией, так и с пиратки. Но мы рекомендуем использовать
+                    официальный лаунчер!</p>
+            </div>
+
+            <div class="card animate-up delay-2" style="margin-bottom: 1rem;">
+                <h3>Как получить приват?</h3>
+                <p>Приваты выдаются автоматически при установке блока привата. Подробнее читайте в разделе "Как
+                    попасть".</p>
+            </div>
+
+            <div class="card animate-up delay-3" style="margin-bottom: 1rem;">
+                <h3>Есть ли вайпы?</h3>
+                <p>Мы стараемся не делать вайпы без крайней необходимости. Мир живет годами, и ваши постройки останутся
+                    с вами.</p>
+            </div>
+
+            <div class="card animate-up delay-4" style="margin-bottom: 1rem;">
+                <h3>Какие версии поддерживаются?</h3>
+                <p>Мы поддерживаем последнюю стабильную верисю Minecraft Java Edition. Следите за новостями в Discord.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="page-section">
+        <div class="container">
+            <h1 style="text-align: center;" class="animate-up">Галерея Сервера</h1>
+            <p style="text-align: center; color: var(--text-muted);" class="animate-up delay-1">Лучшие постройки наших
+                игроков</p>
+
+            <div class="gallery-grid animate-up delay-2">
+                <div class="gallery-item"><i class="fa-solid fa-image"></i></div>
+                <div class="gallery-item"><i class="fa-solid fa-image"></i></div>
+                <div class="gallery-item"><i class="fa-solid fa-image"></i></div>
+                <div class="gallery-item"><i class="fa-solid fa-image"></i></div>
+                <div class="gallery-item"><i class="fa-solid fa-image"></i></div>
+                <div class="gallery-item"><i class="fa-solid fa-image"></i></div>
+                <div class="gallery-item"><i class="fa-solid fa-image"></i></div>
+                <div class="gallery-item"><i class="fa-solid fa-image"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOIN SECTION -->
+    <section id="join" class="page-section">
+        <div class="container">
+            <h1 style="text-align: center; margin-bottom: 2rem;" class="animate-up">Заявка на сервер</h1>
+
+            <div class="card animate-up delay-1" style="max-width: 800px; margin: 0 auto;">
+                <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
+                    Чтобы попасть на сервер, скопируйте анкету ниже, заполните её и отправьте в Discord канал
+                    <strong>#заявки</strong>.
+                </p>
+
+                <div
+                    style="background: #0f1115; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); overflow-x: auto;">
+                    <p style="margin-bottom: 1rem; font-weight: bold; color: var(--primary);">Заявка на сервер Minecraft
+                    </p>
+
+                    <pre
+                        style="font-family: monospace; color: #dcdcdc; line-height: 1.8; white-space: pre-wrap; margin: 0;">Имя:
+Возраст:
+Ник в Minecraft:
+Цель вступления на сервер:
+Опыт игры в Minecraft:
+Активность (сколько времени и как часто готов играть):
+Использовал ли когда-либо читы:
+Гриферил ли когда-либо:
+Любимый стиль игры:
+Любимый биом:
+Самая крутая постройка, которую создавал:
+Как относишься к командной игре:
+Что раздражает на серверах:
+Готов ли помогать другим игрокам:
+Любимые моды или плагины:
+Какая роль интересна на сервере:
+Есть ли Youtube канал?</pre>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="#" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Перейти в Discord</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTS SECTION -->
+    <section id="contacts" class="page-section">
+        <div class="container" style="text-align: center;">
+            <h1 style="margin-bottom: 2rem;" class="animate-up">Свяжитесь с нами</h1>
+            <p style="margin-bottom: 3rem; color: var(--text-muted);" class="animate-up delay-1">Мы всегда готовы
+                ответить на ваши вопросы</p>
+
+            <div class="info-grid animate-up delay-2">
+                <a href="#" class="card" style="text-decoration: none;">
+                    <h3 style="font-size: 2rem;"><i class="fa-brands fa-discord"></i></h3>
+                    <p>Наш Discord</p>
+                </a>
+                <a href="#" class="card" style="text-decoration: none;">
+                    <h3 style="font-size: 2rem;"><i class="fa-solid fa-envelope"></i></h3>
+                    <p>admin@minehard.net</p>
+                </a>
+                <a href="#" class="card" style="text-decoration: none;">
+                    <h3 style="font-size: 2rem;"><i class="fa-brands fa-telegram"></i></h3>
+                    <p>Telegram Канал</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>MineHard</h2>
+                <p>
+                    Если ты ищешь не цирк с донатом и не токсичный балаган, а нормальный сервер, где можно спокойно
+                    строить, выживать и общаться — заходи.
+                    У нас всё по‑простому: стабильный мир, адекватные игроки и админы, которые не лезут без причины.
+                </p>
+                <div class="socials">
+                    <a href="#" class="social-icon"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Router Logic
+        function navigateTo(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.add('active');
+
+                // Reset animations in the section
+                const animatedElements = target.querySelectorAll('.animate-up');
+                animatedElements.forEach(el => {
+                    el.style.animation = 'none';
+                    el.offsetHeight; /* trigger reflow */
+                    el.style.animation = null;
+                });
+            }
+
+            // Update Active Nav Link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + pageId) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Update URL hash without jumping
+            history.pushState(null, null, '#' + pageId);
+            window.scrollTo(0, 0);
+        }
+
+        // Handle initial load
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                navigateTo(hash);
+            } else {
+                navigateTo('home');
+            }
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -159,7 +159,7 @@ C.news.forEach(function(n){
  b.appendChild(h4);b.appendChild(el('p','',n.x));nw.appendChild(b)});
 var cta=$('cta');
 if(C.tg){var a=el('a','bw');a.href=C.tg;a.target='_blank';a.rel='noopener';
- a.innerHTML='<svg class="ic"><use href="https://t.me/catserv_vpn_bot"/></svg>Написать в Telegram';cta.appendChild(a)}
+ a.innerHTML='<svg class="ic"><use href="#i-tg"/></svg>Написать в Telegram';cta.appendChild(a)}
 else cta.appendChild(el('p','nt','Контакт пока не указан.'));
 if(C.mail){$('sup').textContent='Почта: '+C.mail}
 else if(C.tg){$('sup').textContent='Telegram: '+C.tg}

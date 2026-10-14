@@ -1,0 +1,173 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a"><meta name="robots" content="noindex">
+<title>CatServ VPN</title><style>
+:root{color-scheme:dark;--bg:#0a0a0a;--card:#111;--card2:#151515;--bd:#222;--bd2:#333;--ink:#f5f5f5;--mute:#8a8a8a;--ok:#4ade80;--warn:#f5c26b}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;background:var(--bg);scroll-padding-top:24px}
+body{margin:0;color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:920px;margin:0 auto;padding:0 20px}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hero{padding:120px 0 64px;text-align:center}
+h1{margin:0;font-size:clamp(32px,6.4vw,60px);line-height:1.05;letter-spacing:-.04em;font-weight:800;display:flex;flex-wrap:wrap;justify-content:center;gap:0 .4em}
+.tl{margin:22px auto 0;max-width:520px;color:var(--mute);font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.st{padding:22px;background:var(--card);border:1px solid var(--bd);border-radius:16px;transition:border-color .3s,transform .3s}
+.st:hover{border-color:var(--bd2);transform:translateY(-3px)}
+.st .ic{color:var(--mute);margin-bottom:14px;transition:color .3s,transform .3s}
+.st:hover .ic{color:var(--ink);transform:scale(1.12)}
+.st small{display:block;text-transform:uppercase;letter-spacing:.09em;font-size:12px;color:var(--mute)}
+.st b{display:block;font-size:22px;margin:6px 0 4px;letter-spacing:-.02em}
+.st span{color:var(--mute);font-size:14px}
+.lb{text-align:center;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--mute);margin:64px 0 18px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid var(--bd);border-radius:99px;background:var(--card);font-size:15px;transition:border-color .3s,transform .3s}
+.chip:hover{border-color:var(--bd2);transform:translateY(-2px)}
+.fl{width:22px;height:16px;border-radius:3px;flex:none}
+.dh{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:26px 0 12px}
+.dh:after{content:"";flex:1;height:1px;background:var(--bd)}
+.nw{padding:18px 22px;border:1px solid var(--bd);border-radius:14px;background:var(--card);margin-bottom:10px;transition:border-color .3s}
+.nw:hover{border-color:var(--bd2)}
+.nw h4{margin:0 0 4px;font-size:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.nw p{margin:0;color:var(--mute);font-size:15px}
+.tg{font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:99px;border:1px solid}
+.tg.NEW{color:var(--ok);border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.08)}
+.tg.UPDATE{color:var(--warn);border-color:rgba(245,194,107,.35);background:rgba(245,194,107,.08)}
+.pn{border:1px solid var(--bd);border-radius:18px;background:var(--card);margin:48px 0;overflow:hidden}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;border-bottom:1px solid var(--bd)}
+.ph h3{margin:0;font-size:16px;display:flex;align-items:center;gap:10px}
+.cl{display:inline-flex;align-items:center;gap:7px;font:inherit;font-size:13px;color:var(--mute);background:none;border:1px solid var(--bd);border-radius:8px;padding:7px 12px;cursor:pointer;transition:color .2s,border-color .2s}
+.cl:hover{color:var(--ink);border-color:var(--bd2)}
+.cl .ic{width:14px;height:14px}
+.pb{padding:22px}
+.ir{display:flex;gap:16px;align-items:center}
+.ib{display:grid;place-items:center;width:54px;height:54px;border:1px solid var(--bd);border-radius:14px;background:var(--card2);flex:none}
+.ir small{display:block;text-transform:uppercase;letter-spacing:.09em;font-size:12px;color:var(--mute)}
+.ir p{margin:2px 0 0;color:#c9c9c9}
+.lst{margin:20px 0;padding:18px 20px;border:1px solid var(--bd);border-radius:12px;background:var(--card2)}
+.lst small{display:block;text-transform:uppercase;letter-spacing:.09em;font-size:12px;color:var(--mute);margin-bottom:12px}
+.lst div{display:flex;align-items:center;gap:12px;color:#b5b5b5;font-size:15px;padding:6px 0}
+.lst .ic{color:var(--mute);width:17px;height:17px}
+.bw{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0a0a0a;font-weight:600;padding:13px 20px;border-radius:12px;text-decoration:none;transition:transform .15s,opacity .2s}
+.bw:hover{opacity:.9}.bw:active{transform:scale(.97)}
+.nt{color:var(--mute);font-size:14px;margin:0}
+.sp{display:flex;gap:16px;padding:18px 20px;border:1px solid var(--bd);border-radius:12px;background:var(--card2);margin-bottom:12px}
+.sp:last-child{margin-bottom:0}
+.sp i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#1f1f1f;font-style:normal;font-weight:700;font-size:14px;flex:none}
+.sp b{display:block;margin-bottom:2px}
+.sp span{color:var(--mute);font-size:15px}
+.it{color:var(--mute);font-style:italic;margin:0 0 18px}
+.tos{max-height:330px;overflow:auto;padding:22px;color:var(--mute);font-size:15px;scrollbar-color:#3a3a3a var(--card)}
+.tos h4{margin:22px 0 8px;font-size:16px;color:var(--ink)}
+.tos h4:first-child{margin-top:0}
+.tos p{margin:0 0 8px}
+footer{padding:12px 0 56px;text-align:center;color:#5d5d5d;font-size:13px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media(max-width:820px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero{padding-top:72px}.ph{padding:14px 16px}.pb{padding:16px}.ir{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head>
+<body><noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></symbol>
+<symbol id="i-dev" viewBox="0 0 24 24"><rect x="2" y="5" width="14" height="10" rx="2"/><rect x="18" y="8" width="4" height="10" rx="1.5"/><path d="M6 19h6"/></symbol>
+<symbol id="i-srv" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+<symbol id="i-tg" viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l12-9"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0 4.9 4.9L21 13l-8 8-3.5-3.5 8-8zM3 21l5-5"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></symbol>
+<symbol id="i-flow" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></symbol>
+<symbol id="f-ru" viewBox="0 0 22 16"><rect width="22" height="5.4" fill="#fff"/><rect y="5.3" width="22" height="5.4" fill="#0039a6"/><rect y="10.6" width="22" height="5.4" fill="#d52b1e"/></symbol>
+<symbol id="f-de" viewBox="0 0 22 16"><rect width="22" height="5.4" fill="#000"/><rect y="5.3" width="22" height="5.4" fill="#d00"/><rect y="10.6" width="22" height="5.4" fill="#ffce00"/></symbol>
+<symbol id="f-nl" viewBox="0 0 22 16"><rect width="22" height="5.4" fill="#ae1c28"/><rect y="5.3" width="22" height="5.4" fill="#fff"/><rect y="10.6" width="22" height="5.4" fill="#21468b"/></symbol>
+<symbol id="f-fi" viewBox="0 0 22 16"><rect width="22" height="16" fill="#fff"/><rect y="6.2" width="22" height="3.6" fill="#003580"/><rect x="5.6" width="3.6" height="16" fill="#003580"/></symbol>
+<symbol id="f-us" viewBox="0 0 22 16"><rect width="22" height="16" fill="#fff"/><g fill="#b22234"><rect width="22" height="1.23"/><rect y="2.46" width="22" height="1.23"/><rect y="4.92" width="22" height="1.23"/><rect y="7.38" width="22" height="1.23"/><rect y="9.85" width="22" height="1.23"/><rect y="12.3" width="22" height="1.23"/><rect y="14.77" width="22" height="1.23"/></g><rect width="9.4" height="8.6" fill="#3c3b6e"/></symbol>
+</defs></svg>
+<div class="w">
+<section class="hero"><h1><span>Закрытый</span><span>VPN</span><span>для своих</span></h1>
+<p class="tl">Личная ссылка, несколько стран и каскады. Подключение занимает минуту.</p></section>
+<div class="grid">
+<div class="st rv"><svg class="ic"><use href="#i-shield"/></svg><small>Протокол</small><b>VLESS Reality</b><span>Соединение выглядит как обычный заход на крупный сайт</span></div>
+<div class="st rv"><svg class="ic"><use href="#i-srv"/></svg><small>Узлы</small><b>8</b><span>Пять прямых и три каскадных</span></div>
+<div class="st rv"><svg class="ic"><use href="#i-globe"/></svg><small>Страны</small><b>5</b><span>Россия, Германия, Нидерланды, США, Финляндия</span></div>
+<div class="st rv"><svg class="ic"><use href="#i-layers"/></svg><small>Каскады</small><b>3</b><span>Трафик через две страны подряд</span></div>
+<div class="st rv"><svg class="ic"><use href="#i-key"/></svg><small>Доступ</small><b>Private</b><span>Только по личной ссылке</span></div>
+<div class="st rv"><svg class="ic"><use href="#i-dev"/></svg><small>Устройства</small><b>Любые</b><span>iOS, Android, Windows, macOS, Linux</span></div>
+</div>
+<div class="lb">Активные узлы</div>
+<div class="chips rv">
+<span class="chip"><svg class="fl"><use href="#f-ru"/></svg>Россия</span><span class="chip"><svg class="fl"><use href="#f-de"/></svg>Германия</span><span class="chip"><svg class="fl"><use href="#f-nl"/></svg>Нидерланды</span><span class="chip"><svg class="fl"><use href="#f-us"/></svg>США</span><span class="chip"><svg class="fl"><use href="#f-fi"/></svg>Финляндия</span>
+</div>
+<div class="lb" style="margin-top:72px">Что нового</div>
+<div id="news"></div>
+
+<div class="pn rv" id="access"><div class="ph"><h3><svg class="ic"><use href="#i-key"/></svg>Получить доступ</h3><button class="cl" data-id="access"><svg class="ic"><use href="#i-link"/></svg><span>Копировать ссылку</span></button></div><div class="pb">
+<div class="ir"><div class="ib"><svg class="ic"><use href="#i-tg"/></svg></div><div><small>Быстрое подключение</small><p>Доступ выдаётся лично, для получения VPN напишите.</p></div></div>
+<div class="lst"><small>При обращении укажите</small>
+<div><svg class="ic"><use href="#i-list"/></svg>Для чего нужен VPN (соцсети, видео, работа)</div>
+<div><svg class="ic"><use href="#i-globe"/></svg>Откуда подключаетесь (страна и оператор)</div>
+<div><svg class="ic"><use href="#i-share"/></svg>Кто вас пригласил</div></div>
+<div id="cta"></div></div></div>
+
+<div class="pn rv" id="how"><div class="ph"><h3><svg class="ic"><use href="#i-flow"/></svg>Как это работает</h3><button class="cl" data-id="how"><svg class="ic"><use href="#i-link"/></svg><span>Копировать ссылку</span></button></div><div class="pb">
+<div class="sp"><i>D</i><div><b>Direct</b><span>Выход в интернет через одну страну: Россия, Германия, Нидерланды, США или Финляндия. Быстрее всего, начинайте с них.</span></div></div>
+<div class="sp"><i>C</i><div><b>Cascade</b><span>Трафик идёт через две страны подряд: Россия → Германия, Германия → США, Германия → Нидерланды. Медленнее, но выручает, когда прямые узлы режутся.</span></div></div>
+</div></div>
+
+<div class="pn rv" id="fix"><div class="ph"><h3><svg class="ic"><use href="#i-wrench"/></svg>Если что-то не так</h3><button class="cl" data-id="fix"><svg class="ic"><use href="#i-link"/></svg><span>Копировать ссылку</span></button></div><div class="pb">
+<p class="it">Этот порядок помогает в большинстве случаев.</p>
+<div class="sp"><i>1</i><div><b>Обновите подписку</b><span>В приложении нажмите обновление подписки: адреса серверов иногда меняются.</span></div></div>
+<div class="sp"><i>2</i><div><b>Проверьте пинг узлов</b><span>Узлы, которые отвечают, работают. Если узел не отвечает, значит, в вашей сети он блокируется.</span></div></div>
+<div class="sp"><i>3</i><div><b>Подключитесь к узлу с лучшим пингом</b><span>Если VPN всё равно не работает, смените узел (например, на каскад) и проверьте дату и время на устройстве.</span></div></div>
+</div></div>
+
+<div class="pn rv" id="tos"><div class="ph"><h3><svg class="ic"><use href="#i-doc"/></svg>Правила</h3><button class="cl" data-id="tos"><svg class="ic"><use href="#i-link"/></svg><span>Копировать ссылку</span></button></div>
+<div class="tos"><h4>1. Общие положения</h4><p>Сервис частный и не является публичным. Им пользуются люди, которых пригласил владелец.</p>
+<h4>2. Доступ</h4><p>Доступ выдаётся лично в виде персональной ссылки. Владелец вправе отказать в доступе или отключить его без объяснения причин.</p>
+<h4>3. Личная ссылка</h4><p>Ссылка предназначена только вам. Не передавайте её другим людям и не публикуйте. При подозрении, что ссылка стала известна посторонним, сообщите владельцу.</p>
+<h4>4. Допустимое использование</h4><p>Нельзя использовать сервис для незаконных действий, рассылки спама, сканирования и атак на чужие системы, а также для нагрузки, мешающей остальным пользователям.</p>
+<h4>5. Ограничения</h4><p>Скорость и доступность узлов не гарантируются. Возможны перебои, замена серверов и изменение адресов.</p>
+<h4>6. Конфиденциальность</h4><p>Содержимое вашего трафика сервис не читает. Серверы могут хранить технические служебные данные, необходимые для работы и устранения неполадок. Абсолютной анонимности не существует.</p>
+<h4>7. Ответственность</h4><p>Сервис предоставляется «как есть». Владелец не отвечает за сбои и за действия пользователя. Нарушение правил ведёт к отключению без восстановления.</p>
+<h4>8. Поддержка</h4><p id="sup">По вопросам обращайтесь к тому, кто выдал вам ссылку.</p></div></div>
+<footer>CatServ VPN</footer>
+</div>
+<script>
+(function(){
+/* НАСТРОЙКИ: впишите ссылку на Telegram, почту и ведите список обновлений */
+var C={
+ tg:'',
+ mail:'',
+ news:[
+  {d:'13 октября 2026',t:'Локация: Финляндия',k:'NEW',x:'Добавлен прямой узел в Финляндии.'},
+  {d:'10 октября 2026',t:'Личные страницы',k:'UPDATE',x:'У каждого теперь своя страница с инструкцией и кнопкой добавления подписки.'},
+  {d:'9 октября 2026',t:'Новая сеть узлов',k:'NEW',x:'Россия, Германия, Нидерланды, США и три каскада: RU→DE, DE→US, DE→NL.'}
+ ]};
+var $=function(i){return document.getElementById(i)};
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.textContent=h;return e}
+var nw=$('news'),last='';
+C.news.forEach(function(n){
+ if(n.d!==last){nw.appendChild(el('div','dh rv',n.d));last=n.d}
+ var b=el('div','nw rv'),h4=el('h4','',n.t);h4.appendChild(el('span','tg '+n.k,n.k));
+ b.appendChild(h4);b.appendChild(el('p','',n.x));nw.appendChild(b)});
+var cta=$('cta');
+if(C.tg){var a=el('a','bw');a.href=C.tg;a.target='_blank';a.rel='noopener';
+ a.innerHTML='<svg class="ic"><use href="#i-tg"/></svg>Написать в Telegram';cta.appendChild(a)}
+else cta.appendChild(el('p','nt','Контакт пока не указан.'));
+if(C.mail){$('sup').textContent='Почта: '+C.mail}
+else if(C.tg){$('sup').textContent='Telegram: '+C.tg}
+document.querySelectorAll('.cl').forEach(function(b){b.onclick=function(){
+ var u=location.href.split('#')[0]+'#'+b.dataset.id,s=b.querySelector('span');
+ function done(){s.textContent='Скопировано';setTimeout(function(){s.textContent='Копировать ссылку'},1600)}
+ if(navigator.clipboard)navigator.clipboard.writeText(u).then(done,function(){});else done()}});
+var R=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{threshold:.1});R.forEach(function(r,i){r.style.transitionDelay=(i%3)*70+'ms';o.observe(r)})}else R.forEach(function(r){r.classList.add('in')});
+})();
+</script></body></html>

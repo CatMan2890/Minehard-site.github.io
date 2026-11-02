@@ -88,6 +88,8 @@ a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 <symbol id="f-de" viewBox="0 0 22 16"><rect width="22" height="5.4" fill="#000"/><rect y="5.3" width="22" height="5.4" fill="#d00"/><rect y="10.6" width="22" height="5.4" fill="#ffce00"/></symbol>
 <symbol id="f-nl" viewBox="0 0 22 16"><rect width="22" height="5.4" fill="#ae1c28"/><rect y="5.3" width="22" height="5.4" fill="#fff"/><rect y="10.6" width="22" height="5.4" fill="#21468b"/></symbol>
 <symbol id="f-fi" viewBox="0 0 22 16"><rect width="22" height="16" fill="#fff"/><rect y="6.2" width="22" height="3.6" fill="#003580"/><rect x="5.6" width="3.6" height="16" fill="#003580"/></symbol>
+<symbol id="f-fr" viewBox="0 0 22 16"><rect width="7.4" height="16" fill="#0055a4"/><rect x="7.3" width="7.4" height="16" fill="#fff"/><rect x="14.6" width="7.4" height="16" fill="#ef4135"/></symbol>
+<symbol id="f-sg" viewBox="0 0 22 16"><rect width="22" height="8" fill="#ef3340"/><rect y="8" width="22" height="8" fill="#fff"/><circle cx="4.6" cy="4" r="2.7" fill="#fff"/><circle cx="5.6" cy="4" r="2.5" fill="#ef3340"/><g fill="#fff"><circle cx="8" cy="2.1" r=".55"/><circle cx="9.6" cy="3.5" r=".55"/><circle cx="9" cy="5.5" r=".55"/><circle cx="7" cy="5.5" r=".55"/><circle cx="6.4" cy="3.5" r=".55"/></g></symbol>
 <symbol id="f-us" viewBox="0 0 22 16"><rect width="22" height="16" fill="#fff"/><g fill="#b22234"><rect width="22" height="1.23"/><rect y="2.46" width="22" height="1.23"/><rect y="4.92" width="22" height="1.23"/><rect y="7.38" width="22" height="1.23"/><rect y="9.85" width="22" height="1.23"/><rect y="12.3" width="22" height="1.23"/><rect y="14.77" width="22" height="1.23"/></g><rect width="9.4" height="8.6" fill="#3c3b6e"/></symbol>
 </defs></svg>
 <div class="w">
@@ -95,16 +97,14 @@ a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 <p class="tl">Личная ссылка, несколько стран и каскады. Подключение занимает минуту.</p></section>
 <div class="grid">
 <div class="st rv"><svg class="ic"><use href="#i-shield"/></svg><small>Протокол</small><b>VLESS Reality</b><span>Соединение выглядит как обычный заход на крупный сайт</span></div>
-<div class="st rv"><svg class="ic"><use href="#i-srv"/></svg><small>Узлы</small><b>8</b><span>Пять прямых и три каскадных</span></div>
-<div class="st rv"><svg class="ic"><use href="#i-globe"/></svg><small>Страны</small><b>5</b><span>Россия, Германия, Нидерланды, США, Финляндия</span></div>
-<div class="st rv"><svg class="ic"><use href="#i-layers"/></svg><small>Каскады</small><b>3</b><span>Трафик через две страны подряд</span></div>
+<div class="st rv"><svg class="ic"><use href="#i-srv"/></svg><small>Узлы</small><b id="s-n">0</b><span id="s-nd"></span></div>
+<div class="st rv"><svg class="ic"><use href="#i-globe"/></svg><small>Страны</small><b id="s-c">0</b><span id="s-cd"></span></div>
+<div class="st rv"><svg class="ic"><use href="#i-layers"/></svg><small>Каскады</small><b id="s-k">0</b><span>Трафик через две страны подряд</span></div>
 <div class="st rv"><svg class="ic"><use href="#i-key"/></svg><small>Доступ</small><b>Private</b><span>Только по личной ссылке</span></div>
 <div class="st rv"><svg class="ic"><use href="#i-dev"/></svg><small>Устройства</small><b>Любые</b><span>iOS, Android, Windows, macOS, Linux</span></div>
 </div>
 <div class="lb">Активные узлы</div>
-<div class="chips rv">
-<span class="chip"><svg class="fl"><use href="#f-ru"/></svg>Россия</span><span class="chip"><svg class="fl"><use href="#f-de"/></svg>Германия</span><span class="chip"><svg class="fl"><use href="#f-nl"/></svg>Нидерланды</span><span class="chip"><svg class="fl"><use href="#f-us"/></svg>США</span><span class="chip"><svg class="fl"><use href="#f-fi"/></svg>Финляндия</span>
-</div>
+<div class="chips rv" id="chips"></div>
 <div class="lb" style="margin-top:72px">Что нового</div>
 <div id="news"></div>
 
@@ -117,8 +117,8 @@ a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 <div id="cta"></div></div></div>
 
 <div class="pn rv" id="how"><div class="ph"><h3><svg class="ic"><use href="#i-flow"/></svg>Как это работает</h3><button class="cl" data-id="how"><svg class="ic"><use href="#i-link"/></svg><span>Копировать ссылку</span></button></div><div class="pb">
-<div class="sp"><i>D</i><div><b>Direct</b><span>Выход в интернет через одну страну: Россия, Германия, Нидерланды, США или Финляндия. Быстрее всего, начинайте с них.</span></div></div>
-<div class="sp"><i>C</i><div><b>Cascade</b><span>Трафик идёт через две страны подряд: Россия → Германия, Германия → США, Германия → Нидерланды. Медленнее, но выручает, когда прямые узлы режутся.</span></div></div>
+<div class="sp"><i>D</i><div><b>Direct</b><span>Выход в интернет через одну страну: <span id="dir-list"></span>. Быстрее всего, начинайте с них.</span></div></div>
+<div class="sp"><i>C</i><div><b>Cascade</b><span>Трафик идёт через две страны подряд: <span id="casc-text"></span>. Медленнее, но выручает, когда прямые узлы режутся.</span></div></div>
 </div></div>
 
 <div class="pn rv" id="fix"><div class="ph"><h3><svg class="ic"><use href="#i-wrench"/></svg>Если что-то не так</h3><button class="cl" data-id="fix"><svg class="ic"><use href="#i-link"/></svg><span>Копировать ссылку</span></button></div><div class="pb">
@@ -143,15 +143,30 @@ a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 (function(){
 /* НАСТРОЙКИ: впишите ссылку на Telegram, почту и ведите список обновлений */
 var C={
- tg:'t.me/catserv_vpn_bot',
- mail:'vpn.support@catserv.space',
+ tg:'',
+ mail:'',
+ /* страны с прямыми узлами: [код, название]. Флаг берётся из #f-код, иначе показывается код */
+ countries:[['RU','Россия'],['DE','Германия'],['NL','Нидерланды'],['US','США'],['FI','Финляндия'],['FR','Франция'],['SG','Сингапур']],
+ /* каскады: [вход, выход]. Удалите строку, если каскада нет */
+ cascades:[['RU','DE'],['DE','US'],['DE','NL']],
  news:[
+  {d:'2 ноября 2026',t:'Локация: Сингапур',k:'NEW',x:'Добавлен прямой узел в Сингапуре.'},
+  {d:'17 октября 2026',t:'Локация: Франция',k:'NEW',x:'Добавлен прямой узел во Франции.'},
   {d:'13 октября 2026',t:'Локация: Финляндия',k:'NEW',x:'Добавлен прямой узел в Финляндии.'},
   {d:'10 октября 2026',t:'Личные страницы',k:'UPDATE',x:'У каждого теперь своя страница с инструкцией и кнопкой добавления подписки.'},
   {d:'9 октября 2026',t:'Новая сеть узлов',k:'NEW',x:'Россия, Германия, Нидерланды, США и три каскада: RU→DE, DE→US, DE→NL.'}
  ]};
 var $=function(i){return document.getElementById(i)};
 function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.textContent=h;return e}
+var NM={};C.countries.forEach(function(c){NM[c[0]]=c[1]});
+function flag(c){return document.getElementById('f-'+c.toLowerCase())?'<svg class="fl"><use href="#f-'+c.toLowerCase()+'"/></svg>':''}
+C.countries.forEach(function(c){var s=el('span','chip');s.innerHTML=flag(c[0]);s.appendChild(document.createTextNode(c[1]));$('chips').appendChild(s)});
+var cs=C.cascades.map(function(k){return (NM[k[0]]||k[0])+' → '+(NM[k[1]]||k[1])});
+$('s-n').textContent=C.countries.length+C.cascades.length;$('s-nd').textContent='Прямых: '+C.countries.length+', каскадных: '+C.cascades.length;
+$('s-c').textContent=C.countries.length;$('s-cd').textContent=C.countries.map(function(c){return c[1]}).join(', ');
+$('s-k').textContent=C.cascades.length;
+$('dir-list').textContent=C.countries.map(function(c){return c[1]}).join(', ');
+$('casc-text').textContent=cs.join(', ');
 var nw=$('news'),last='';
 C.news.forEach(function(n){
  if(n.d!==last){nw.appendChild(el('div','dh rv',n.d));last=n.d}

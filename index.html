@@ -90,6 +90,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 <symbol id="f-fi" viewBox="0 0 22 16"><rect width="22" height="16" fill="#fff"/><rect y="6.2" width="22" height="3.6" fill="#003580"/><rect x="5.6" width="3.6" height="16" fill="#003580"/></symbol>
 <symbol id="f-fr" viewBox="0 0 22 16"><rect width="7.4" height="16" fill="#0055a4"/><rect x="7.3" width="7.4" height="16" fill="#fff"/><rect x="14.6" width="7.4" height="16" fill="#ef4135"/></symbol>
 <symbol id="f-sg" viewBox="0 0 22 16"><rect width="22" height="8" fill="#ef3340"/><rect y="8" width="22" height="8" fill="#fff"/><circle cx="4.6" cy="4" r="2.7" fill="#fff"/><circle cx="5.6" cy="4" r="2.5" fill="#ef3340"/><g fill="#fff"><circle cx="8" cy="2.1" r=".55"/><circle cx="9.6" cy="3.5" r=".55"/><circle cx="9" cy="5.5" r=".55"/><circle cx="7" cy="5.5" r=".55"/><circle cx="6.4" cy="3.5" r=".55"/></g></symbol>
+<symbol id="f-rs" viewBox="0 0 22 16"><rect width="22" height="5.4" fill="#c6363c"/><rect y="5.3" width="22" height="5.4" fill="#0c4076"/><rect y="10.6" width="22" height="5.4" fill="#fff"/><rect x="3.2" y="3.6" width="4.2" height="6.4" rx="1" fill="#c6363c"/><rect x="4.2" y="4.8" width="2.2" height="3.4" fill="#fff"/></symbol>
 <symbol id="f-us" viewBox="0 0 22 16"><rect width="22" height="16" fill="#fff"/><g fill="#b22234"><rect width="22" height="1.23"/><rect y="2.46" width="22" height="1.23"/><rect y="4.92" width="22" height="1.23"/><rect y="7.38" width="22" height="1.23"/><rect y="9.85" width="22" height="1.23"/><rect y="12.3" width="22" height="1.23"/><rect y="14.77" width="22" height="1.23"/></g><rect width="9.4" height="8.6" fill="#3c3b6e"/></symbol>
 </defs></svg>
 <div class="w">
@@ -143,13 +144,14 @@ a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 (function(){
 /* НАСТРОЙКИ: впишите ссылку на Telegram, почту и ведите список обновлений */
 var C={
- tg:'https://t.me/catman2890',
- mail:'catserv.hosting@gmail.com',
+ tg:'',
+ mail:'',
  /* страны с прямыми узлами: [код, название]. Флаг берётся из #f-код, иначе показывается код */
- countries:[['RU','Россия'],['DE','Германия'],['NL','Нидерланды'],['US','США'],['FI','Финляндия'],['FR','Франция'],['SG','Сингапур']],
+ countries:[['RU','Россия'],['DE','Германия'],['NL','Нидерланды'],['US','США'],['FI','Финляндия'],['FR','Франция'],['SG','Сингапур'],['RS','Сербия']],
  /* каскады: [вход, выход]. Удалите строку, если каскада нет */
  cascades:[['RU','DE'],['DE','US'],['DE','NL']],
  news:[
+  {d:'2 ноября 2026',t:'Локация: Сербия',k:'NEW',x:'Добавлен прямой узел в Сербии.'},
   {d:'2 ноября 2026',t:'Локация: Сингапур',k:'NEW',x:'Добавлен прямой узел в Сингапуре.'},
   {d:'17 октября 2026',t:'Локация: Франция',k:'NEW',x:'Добавлен прямой узел во Франции.'},
   {d:'13 октября 2026',t:'Локация: Финляндия',k:'NEW',x:'Добавлен прямой узел в Финляндии.'},
